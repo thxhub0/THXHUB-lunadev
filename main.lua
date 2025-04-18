@@ -26,5 +26,25 @@ attack:OnChanged(function()
     [1] = "attack"
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+
+
+               local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://18831448204" }),
+    Settings = Window:AddTab({ Title = "• Settings", Icon = "rbxassetid://18319394996" }),
+} 
+Window:SelectTab(1)
+
+
+ local attack = Tabs.Main:AddToggle("eggs", {Title = "auto open", Default = false})
+attack:OnChanged(function()
+     while roll.Value do
+         wait(0.1)
+      local args = {
+    [1] = "rollChampion",
+    [2] = "one",
+    [3] = "shinobi world"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
     end
 end)
