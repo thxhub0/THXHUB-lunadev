@@ -22,11 +22,9 @@ Window:SelectTab(1)
 attack:OnChanged(function()
     while attack.Value do
         wait(0.1)
-        local args = {
-            [1] = "Anime Power"
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent")
-        
+     local args = {
+    [1] = "attack"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
     end
 end)
