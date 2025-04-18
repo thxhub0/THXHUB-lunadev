@@ -1,11 +1,11 @@
--- Verifica o jogo pelo PlaceId
+--  jogo pelo PlaceId
 if game.PlaceId == 4058282580 then
-    -- Tente carregar a Fluent e capture erros
+    -- Tente carregar a Fluent e capture coisa os erro
     local Fluent, err = pcall(function()
         return loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
     end)
 
-    -- Verifica se a biblioteca foi carregada corretamente
+    -- Verifica se a biblioteca foi carregada correto
     if not Fluent then
         warn("Erro ao carregar a Fluent: " .. err)
         return
@@ -14,7 +14,7 @@ if game.PlaceId == 4058282580 then
     local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
     local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-    -- Verificar se a função 'CreateWindow' existe (caso o Fluent tenha sido carregado corretamente)
+
     if not Fluent.CreateWindow then
         warn("A função CreateWindow não foi encontrada no Fluent")
         return
@@ -30,7 +30,7 @@ if game.PlaceId == 4058282580 then
         MinimizeKey = Enum.KeyCode.LeftControl
     })
 
-    -- Adiciona as abas
+    -- abas
     local Tabs = {
         Main = Window:AddTab({ Title = "Main", Icon = "" }),
         Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
@@ -38,7 +38,7 @@ if game.PlaceId == 4058282580 then
 
      _G.loopAtivo = true
 
-    -- Lógica de AutoClick
+    -- auto click
     local autoClickEnabled = true
     local function startAutoClick()
         task.spawn(function()
@@ -53,7 +53,7 @@ if game.PlaceId == 4058282580 then
         end)
     end
 
-    -- Aba Principal com Auto Vender e Auto Click
+    -- Aba Principal 
     local Main = Tabs.Main:AddSection({
         Name = "Auto Farming"
     })
@@ -109,8 +109,8 @@ if game.PlaceId == 4058282580 then
         Duration = 8
     })
 
-elseif game.PlaceId == 76598287484083 then -- Troque esse número pelo PlaceId correto do segundo jogo
-    -- Tente carregar a Fluent e capture erros
+elseif game.PlaceId == 76598287484083 then 
+    -- Tente carregar a Fluent
     local Fluent, err = pcall(function()
         return loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
     end)
@@ -124,7 +124,7 @@ elseif game.PlaceId == 76598287484083 then -- Troque esse número pelo PlaceId c
     local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
     local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-    -- Verificar se a função 'CreateWindow' existe (caso o Fluent tenha sido carregado corretamente)
+
     if not Fluent.CreateWindow then
         warn("A função CreateWindow não foi encontrada no Fluent")
         return
