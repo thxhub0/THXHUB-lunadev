@@ -1,6 +1,15 @@
 -- Verifica o jogo pelo PlaceId
 if game.PlaceId == 4058282580 then
-    local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+    -- Tente carregar a OrionLib e capture erros
+    local OrionLib, err = pcall(function()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+    end)
+
+    -- Verifica se a biblioteca foi carregada corretamente
+    if not OrionLib then
+        warn("Erro ao carregar a OrionLib: " .. err)
+        return
+    end
 
     local Window = OrionLib:MakeWindow({
         Name = "thx Hubi",
@@ -71,7 +80,16 @@ if game.PlaceId == 4058282580 then
 
 -- Segundo jogo
 elseif game.PlaceId == 1234567890 then -- Troque esse número pelo PlaceId correto do segundo jogo
-    local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+    -- Tente carregar a OrionLib e capture erros
+    local OrionLib, err = pcall(function()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+    end)
+
+    -- Verifica se a biblioteca foi carregada corretamente
+    if not OrionLib then
+        warn("Erro ao carregar a OrionLib: " .. err)
+        return
+    end
 
     local Window = OrionLib:MakeWindow({
         Name = "thx Hubi",
