@@ -36,10 +36,10 @@ if game.PlaceId == 4058282580 then
         Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
     }
 
-    local Options = Fluent.Options
+     _G.loopAtivo = true
 
     -- Lógica de AutoClick
-    local autoClickEnabled = false
+    local autoClickEnabled = true
     local function startAutoClick()
         task.spawn(function()
             while autoClickEnabled do
@@ -59,7 +59,7 @@ if game.PlaceId == 4058282580 then
     })
 
     -- Auto Sell
-    local autoSellEnabled = false
+    local autoSellEnabled = true
     Main:AddToggle({
         Title = "Auto Vende",
         Default = false,
@@ -129,9 +129,10 @@ elseif game.PlaceId == 76598287484083 then -- Troque esse número pelo PlaceId c
         warn("A função CreateWindow não foi encontrada no Fluent")
         return
     end
+     _G.loopAtivo = true
 
-    local Window = Fluent:CreateWindow({
-        Title = "thx Hub",
+    local Main = Fluent:CreateWindow({
+        Title = "thx",
         SubTitle = "by thx",
         TabWidth = 160,
         Size = UDim2.fromOffset(580, 460),
@@ -141,15 +142,13 @@ elseif game.PlaceId == 76598287484083 then -- Troque esse número pelo PlaceId c
     })
 
     -- Adiciona as abas
-    local Tabs = {
+    local Main = {
         Main = Window:AddTab({ Title = "Main", Icon = "" }),
         Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
     }
 
-    local Options = Fluent.Options
-
     -- Lógica de Auto Ataque
-    local autoAttackEnabled = false
+    local autoAttackEnabled = true
     local function startAutoAttack()
         task.spawn(function()
             while autoAttackEnabled do
