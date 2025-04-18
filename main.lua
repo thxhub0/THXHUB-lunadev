@@ -70,16 +70,23 @@ _G.loopAtivo = true
     })
 end
 
- if game.PlaceId == 76598287484083 then
+if game.PlaceId == 76598287484083 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 
 local Window = OrionLib:MakeWindow({Name = "thx Hubi", HidePremium = false, SaveConfig = true, ConfigFolder = "Devi thx", IntroEnable = true })
+
+ _G.loopAtivo = true
+
 local Main = Window:MakeTab({
     Name = "auto farm",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
-_G.loopAtivo = true
+
+local Section = Tab:AddSection({
+    Name = "Main"
+}) 
+
  Main:AddToggle({
     Name = "auto attack",
     Default = false,
