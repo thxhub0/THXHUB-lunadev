@@ -47,7 +47,7 @@ end)
    local attack = Tabs.Main:AddToggle("auto farmi", {Title = "mobs", Default = false})
 attack:OnChanged(function()
      while attack.Value do
-         wait(1.0)
+         wait(0.1)
        local args = {
     [1] = "grimoireAttack",
     [2] = workspace:WaitForChild("spawners"):WaitForChild("shinobi world"):WaitForChild("cc7057cd-dec8-4312-a3ca-27e34ef47aa3")
@@ -60,7 +60,7 @@ end)
  local attack = Tabs.Main:AddToggle("collect", {Title = "collect time", Default = false})
 attack:OnChanged(function()
      while attack.Value do
-         wait(0.1)
+         wait(3.0)
        local args = {
     [1] = "collectTimeReward",
     [2] = 1
