@@ -14,8 +14,14 @@ if game.PlaceId == 4058282580 then
     local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
     local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
+    -- Verificar se a função 'CreateWindow' existe (caso o Fluent tenha sido carregado corretamente)
+    if not Fluent.CreateWindow then
+        warn("A função CreateWindow não foi encontrada no Fluent")
+        return
+    end
+
     local Window = Fluent:CreateWindow({
-        Title = "thx hub",
+        Title = "thx Hub",
         SubTitle = "by thx",
         TabWidth = 160,
         Size = UDim2.fromOffset(580, 460),
@@ -118,8 +124,14 @@ elseif game.PlaceId == 76598287484083 then -- Troque esse número pelo PlaceId c
     local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
     local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
+    -- Verificar se a função 'CreateWindow' existe (caso o Fluent tenha sido carregado corretamente)
+    if not Fluent.CreateWindow then
+        warn("A função CreateWindow não foi encontrada no Fluent")
+        return
+    end
+
     local Window = Fluent:CreateWindow({
-        Title = "thx hub",
+        Title = "thx Hub",
         SubTitle = "by thx",
         TabWidth = 160,
         Size = UDim2.fromOffset(580, 460),
