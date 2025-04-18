@@ -56,3 +56,16 @@ attack:OnChanged(function()
 game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
      end
 end)
+
+ local attack = Tabs.Main:AddToggle("collect", {Title = "collect time", Default = false})
+attack:OnChanged(function()
+     while attack.Value do
+         wait(0.1)
+       local args = {
+    [1] = "collectTimeReward",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+          end
+     end)
