@@ -85,7 +85,8 @@ _G.loopAtivo = true
     Name = "auto attack",
     Default = false,
     Callback = function(Value)
-        game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent")
-    end    
+        game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"()
+    end)
+        task.wait(0.1)
 })
 end
