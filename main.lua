@@ -6,9 +6,9 @@ if game.PlaceId == 4058282580 then
         HidePremium = false,
         SaveConfig = true,
         ConfigFolder = "Devi thx",
-        IntroEnabled = false
+        IntroEnabled = true
     })
-
+_G.loopAtivo = true
     -- AutoClick control
     local autoClickEnabled = false
 
