@@ -1,27 +1,39 @@
 -- Verifica o jogo pelo PlaceId
 if game.PlaceId == 4058282580 then
-    -- Tente carregar a OrionLib e capture erros
-    local OrionLib, err = pcall(function()
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+    -- Tente carregar a Fluent e capture erros
+    local Fluent, err = pcall(function()
+        return loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
     end)
 
     -- Verifica se a biblioteca foi carregada corretamente
-    if not OrionLib then
-        warn("Erro ao carregar a OrionLib: " .. err)
+    if not Fluent then
+        warn("Erro ao carregar a Fluent: " .. err)
         return
     end
 
-    local Window = OrionLib:MakeWindow({
-        Name = "thx Hubi",
-        HidePremium = false,
-        SaveConfig = true,
-        ConfigFolder = "Devi thx",
-        IntroEnabled = true
+    local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+    local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+    local Window = Fluent:CreateWindow({
+        Title = "thx hub",
+        SubTitle = "by thx",
+        TabWidth = 160,
+        Size = UDim2.fromOffset(580, 460),
+        Acrylic = true,
+        Theme = "Dark",
+        MinimizeKey = Enum.KeyCode.LeftControl
     })
 
-    -- AutoClick
-    local autoClickEnabled = false
+    -- Adiciona as abas
+    local Tabs = {
+        Main = Window:AddTab({ Title = "Main", Icon = "" }),
+        Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    }
 
+    local Options = Fluent.Options
+
+    -- Lógica de AutoClick
+    local autoClickEnabled = false
     local function startAutoClick()
         task.spawn(function()
             while autoClickEnabled do
@@ -35,21 +47,15 @@ if game.PlaceId == 4058282580 then
         end)
     end
 
-    local Main = Window:MakeTab({
-        Name = "auto farmi",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    local Section = Main:AddSection({
-        Name = "Main"
+    -- Aba Principal com Auto Vender e Auto Click
+    local Main = Tabs.Main:AddSection({
+        Name = "Auto Farming"
     })
 
     -- Auto Sell
     local autoSellEnabled = false
-
     Main:AddToggle({
-        Name = "Auto Vende",
+        Title = "Auto Vende",
         Default = false,
         Callback = function(Value)
             autoSellEnabled = Value
@@ -66,9 +72,9 @@ if game.PlaceId == 4058282580 then
         end
     })
 
-    -- AutoClick toggle
+    -- Toggle de AutoClick
     Main:AddToggle({
-        Name = "AutoClick",
+        Title = "AutoClick",
         Default = false,
         Callback = function(state)
             autoClickEnabled = state
@@ -78,55 +84,104 @@ if game.PlaceId == 4058282580 then
         end
     })
 
--- Segundo jogo
-elseif game.PlaceId == 1234567890 then -- Troque esse número pelo PlaceId correto do segundo jogo
-    -- Tente carregar a OrionLib e capture erros
-    local OrionLib, err = pcall(function()
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
+    -- Adiciona SaveManager e InterfaceManager
+    SaveManager:SetLibrary(Fluent)
+    InterfaceManager:SetLibrary(Fluent)
+    SaveManager:SetFolder("FluentHub/specific-game")
+    InterfaceManager:SetFolder("FluentHub")
+
+    InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+    SaveManager:BuildConfigSection(Tabs.Settings)
+
+    -- Carregar configuração salva
+    SaveManager:LoadAutoloadConfig()
+
+    -- Usar Fluent:Notify para exibir notificações
+    Fluent:Notify({
+        Title = "Fluent",
+        Content = "O script foi carregado com sucesso!",
+        Duration = 8
+    })
+
+elseif game.PlaceId == 76598287484083 then -- Troque esse número pelo PlaceId correto do segundo jogo
+    -- Tente carregar a Fluent e capture erros
+    local Fluent, err = pcall(function()
+        return loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
     end)
 
     -- Verifica se a biblioteca foi carregada corretamente
-    if not OrionLib then
-        warn("Erro ao carregar a OrionLib: " .. err)
+    if not Fluent then
+        warn("Erro ao carregar a Fluent: " .. err)
         return
     end
 
-    local Window = OrionLib:MakeWindow({
-        Name = "thx Hubi",
-        HidePremium = false,
-        SaveConfig = true,
-        ConfigFolder = "Devi thx",
-        IntroEnabled = true
+    local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+    local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+    local Window = Fluent:CreateWindow({
+        Title = "thx hub",
+        SubTitle = "by thx",
+        TabWidth = 160,
+        Size = UDim2.fromOffset(580, 460),
+        Acrylic = true,
+        Theme = "Dark",
+        MinimizeKey = Enum.KeyCode.LeftControl
     })
 
-    local Main = Window:MakeTab({
-        Name = "auto farm",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
+    -- Adiciona as abas
+    local Tabs = {
+        Main = Window:AddTab({ Title = "Main", Icon = "" }),
+        Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    }
 
-    local Section = Main:AddSection({
-        Name = "Main"
-    })
+    local Options = Fluent.Options
 
-    local autoAttack = false
+    -- Lógica de Auto Ataque
+    local autoAttackEnabled = false
+    local function startAutoAttack()
+        task.spawn(function()
+            while autoAttackEnabled do
+                pcall(function()
+                    local event = game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent")
+                    event:FireServer()
+                end)
+                task.wait(0.1)
+            end
+        end)
+    end
+
+    -- Aba Principal com Auto Ataque
+    local Main = Tabs.Main:AddSection({
+        Name = "Auto Attack"
+    })
 
     Main:AddToggle({
-        Name = "Auto Attack",
+        Title = "Auto Ataque",
         Default = false,
         Callback = function(Value)
-            autoAttack = Value
-            if autoAttack then
-                task.spawn(function()
-                    while autoAttack do
-                        pcall(function()
-                            local event = game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent")
-                            event:FireServer()
-                        end)
-                        task.wait(0.1)
-                    end
-                end)
+            autoAttackEnabled = Value
+            if autoAttackEnabled then
+                startAutoAttack()
             end
         end
+    })
+
+    -- Adiciona SaveManager e InterfaceManager
+    SaveManager:SetLibrary(Fluent)
+    InterfaceManager:SetLibrary(Fluent)
+    SaveManager:SetFolder("FluentHub/specific-game")
+    InterfaceManager:SetFolder("FluentHub")
+
+    InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+    SaveManager:BuildConfigSection(Tabs.Settings)
+
+    -- Carregar configuração salva
+    SaveManager:LoadAutoloadConfig()
+
+    -- Usar Fluent:Notify para exibir notificações
+    Fluent:Notify({
+        Title = "Fluent",
+        Content = "O script foi carregado com sucesso!",
+        Duration = 8
     })
 end
