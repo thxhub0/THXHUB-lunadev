@@ -12,9 +12,9 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl 
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://18831448204" }),
+    Main1 = Window:AddTab({ Title = "Main3", Icon = "rbxassetid://18831448204" }),
     Settings = Window:AddTab({ Title = "• Settings", Icon = "rbxassetid://18319394996" }),
-     Main = Window:AddTab({ Title = "Eggs", Icon = "rbxassetid://18831448204" }),
+     Main2 = Window:AddTab({ Title = "Eggs", Icon = "rbxassetid://18831448204" }),
 } 
 Window:SelectTab(1)
 
