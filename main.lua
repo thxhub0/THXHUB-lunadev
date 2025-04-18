@@ -19,7 +19,7 @@ local Tabs = {
 Window:SelectTab(1)
 
 
- local attack = Tabs.auto clicker:AddToggle("Auto Click", {Title = "Auto", Default = false})
+ local attack = Tabs.Main1:AddToggle("Auto Click", {Title = "Auto", Default = false})
 attack:OnChanged(function()
     while attack.Value do
         wait(0.1)
@@ -30,7 +30,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events
           end
      end)
 
- local attack = Tabs.auto egg:AddToggle("eggs", {Title = "auto open", Default = false})
+ local attack = Tabs.Main2:AddToggle("eggs", {Title = "auto open", Default = false})
 attack:OnChanged(function()
      while attack.Value do
          wait(0.1)
