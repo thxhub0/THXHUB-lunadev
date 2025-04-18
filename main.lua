@@ -44,13 +44,15 @@ game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events
     end
 end)
 
-   local attack = Tabs.Main:AddToggle("auto farm", {Title = "mobs", Default = false})
+   local attack = Tabs.Main:AddToggle("auto farmi", {Title = "mobs", Default = false})
 attack:OnChanged(function()
      while attack.Value do
-         wait(0.1)
+         wait(1.0)
        local args = {
     [1] = "grimoireAttack",
     [2] = workspace:WaitForChild("spawners"):WaitForChild("shinobi world"):WaitForChild("cc7057cd-dec8-4312-a3ca-27e34ef47aa3")
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+     end
+end)
