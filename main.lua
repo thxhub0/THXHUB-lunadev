@@ -6,17 +6,18 @@ local Window = Fluent:CreateWindow({
     Title = "thx",
     SubTitle = "pelo thx",
     TabWidth = 100, 
-    Size = UDim2.fromOffset(330, 400),
+    Size = UDim2.fromOffset(430, 300),
     Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl 
 })
-  Window:SelectTab(1)
-
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://18831448204" }),
     Settings = Window:AddTab({ Title = "• Settings", Icon = "rbxassetid://18319394996" }),
 } 
+Window:SelectTab(1)
+
+
  local attack = Tabs.Main:AddToggle("Auto Click", {Title = "Auto", Default = false})
 attack:OnChanged(function()
     while attack.Value do
