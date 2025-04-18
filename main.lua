@@ -12,14 +12,14 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl 
 })
 local Tabs = {
-    Main1 = Window:AddTab({ Title = "Main3", Icon = "rbxassetid://18831448204" }),
-    Settings = Window:AddTab({ Title = "• Settings", Icon = "rbxassetid://18319394996" }),
-     Main2 = Window:AddTab({ Title = "Eggs", Icon = "rbxassetid://18831448204" }),
+    Main = Window:AddTab({ Title = "Auto farm", Icon = "rbxassetid://18831448204" }),
+    Eggs = Window:AddTab({ Title = "• eggs", Icon = "rbxassetid://18319394996" }),
+     Settings = Window:AddTab({ Title = "setting", Icon = "rbxassetid://18831448204" }),
 } 
 Window:SelectTab(1)
 
 
- local attack = Tabs.Main1:AddToggle("Auto Click", {Title = "Auto", Default = false})
+ local attack = Tabs.Main:AddToggle("Auto Click", {Title = "Auto", Default = false})
 attack:OnChanged(function()
     while attack.Value do
         wait(0.1)
@@ -30,7 +30,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events
           end
      end)
 
- local attack = Tabs.Main2:AddToggle("eggs", {Title = "auto open", Default = false})
+ local attack = Tabs.Eggs:AddToggle("eggs", {Title = "auto open", Default = false})
 attack:OnChanged(function()
      while attack.Value do
          wait(0.1)
