@@ -11,9 +11,13 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl 
 })
+  Window:SelectTab(1)
 
-local attack = Tabs.Main2:AddToggle("Auto Click", {Title = "Auto", Default = false})
-
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://18831448204" }),
+    Settings = Window:AddTab({ Title = "• Settings", Icon = "rbxassetid://18319394996" }),
+} 
+ local attack = Tabs.Main:AddToggle("Auto Click", {Title = "Auto", Default = false})
 attack:OnChanged(function()
     while attack.Value do
         wait(0.1)
@@ -25,12 +29,3 @@ attack:OnChanged(function()
         
     end
 end)
-
-local Tabs = {
-    Main = Window:AddTab({ Title = "• Infor", Icon = "rbxassetid://18831448204" }),
-    Settings = Window:AddTab({ Title = "• Settings", Icon = "rbxassetid://18319394996" }),
-}
- end 
-end)
- 
-
