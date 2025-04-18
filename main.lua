@@ -1,26 +1,14 @@
 if game.PlaceId == 4058282580 then
-    local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+    local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
 
-local Window = Fluent:CreateWindow({
-    Title = "Thx hubi " .. Fluent.Version,
-    SubTitle = "by thx",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(580, 460),
-    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
-})
+    local Window = OrionLib:MakeWindow({
+        Name = "thx Hubi",
+        HidePremium = false,
+        SaveConfig = true,
+        ConfigFolder = "Devi thx",
+        IntroEnabled = true
+    })
 
---Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
-local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
-}
-
-
-_G.loopAtivo = true
     -- AutoClick control
     local autoClickEnabled = false
 
@@ -46,6 +34,7 @@ _G.loopAtivo = true
     local Section = Main:AddSection({
         Name = "Main"
     })
+_G.loopAtivo = true
 
     -- Auto Sell
     local autoSellEnabled = false
