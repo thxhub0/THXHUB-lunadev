@@ -1,3 +1,4 @@
+-- Verifica o jogo pelo PlaceId
 if game.PlaceId == 4058282580 then
     local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
 
@@ -9,7 +10,7 @@ if game.PlaceId == 4058282580 then
         IntroEnabled = true
     })
 
-    -- AutoClick control
+    -- AutoClick
     local autoClickEnabled = false
 
     local function startAutoClick()
@@ -34,7 +35,6 @@ if game.PlaceId == 4058282580 then
     local Section = Main:AddSection({
         Name = "Main"
     })
-_G.loopAtivo = true
 
     -- Auto Sell
     local autoSellEnabled = false
@@ -57,7 +57,7 @@ _G.loopAtivo = true
         end
     })
 
-    -- AutoClick
+    -- AutoClick toggle
     Main:AddToggle({
         Name = "AutoClick",
         Default = false,
@@ -68,31 +68,47 @@ _G.loopAtivo = true
             end
         end
     })
-end
 
-if game.PlaceId == 76598287484083 then
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+-- Segundo jogo
+elseif game.PlaceId == 1234567890 then -- Troque esse número pelo PlaceId correto do segundo jogo
+    local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))()
 
-local Window = OrionLib:MakeWindow({Name = "thx Hubi", HidePremium = false, SaveConfig = true, ConfigFolder = "Devi thx", IntroEnable = true })
+    local Window = OrionLib:MakeWindow({
+        Name = "thx Hubi",
+        HidePremium = false,
+        SaveConfig = true,
+        ConfigFolder = "Devi thx",
+        IntroEnabled = true
+    })
 
- _G.loopAtivo = true
+    local Main = Window:MakeTab({
+        Name = "auto farm",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
 
-local Main = Window:MakeTab({
-    Name = "auto farm",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+    local Section = Main:AddSection({
+        Name = "Main"
+    })
 
-local Section = Tab:AddSection({
-    Name = "Main"
-}) 
+    local autoAttack = false
 
- Main:AddToggle({
-    Name = "auto attack",
-    Default = false,
-    Callback = function(Value)
-        game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent"()
-    end)
-        task.wait(0.1)
-})
+    Main:AddToggle({
+        Name = "Auto Attack",
+        Default = false,
+        Callback = function(Value)
+            autoAttack = Value
+            if autoAttack then
+                task.spawn(function()
+                    while autoAttack do
+                        pcall(function()
+                            local event = game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("events"):WaitForChild("RemoteEvent")
+                            event:FireServer()
+                        end)
+                        task.wait(0.1)
+                    end
+                end)
+            end
+        end
+    })
 end
